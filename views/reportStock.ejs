@@ -1,0 +1,31 @@
+<%- include('header') %>
+<div class="container">
+
+   
+        <div class="h4 mt-3">รายงานสต้อกสินค้า</div>
+        <table class="table table-bordered table-stiped mt-3">
+            <thead>
+                <tr>
+                    <th width="150px">barcode</th>
+                    <th>รายการสินค้า</th>
+                    <th width="150px" class="text-right">นำเข้าสต้อก</th>
+                    <th width="250px" class="text-right">เบิกสินค้าออกจากสต้อก</th>
+                    <th width="150px" class="text-right">ยอดคงเหลือ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% arr.forEach(item => { %>
+                <tr>
+                    <td><%= item.barcode %></td>
+                    <td><%= item.name %></td>
+                    <td class="text-right"><%= item.qtyIn %></td>
+                    <td class="text-right"><%= item.qtyOut %></td>
+                    <td class="text-right"><%= item.qtyIn - item.qtyOut %></td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    
+</div>
+
+<%- include('footer') %>

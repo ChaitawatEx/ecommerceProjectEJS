@@ -1,0 +1,48 @@
+<%- include('header') %> 
+
+<div class="box">
+<div class="card3">
+    <h4>สินค้า</h4>
+            <a class="btn btn-info mt-3" href="/addProduct">  <span class="material-symbols-outlined material-icon">
+                add
+                </span> เพิ่มสินค้า </a>
+                <table class="table table-bordered mt-3">
+                        <thead>
+                            <tr>
+                                <th>ภาพสินค้า</th>
+                                <th>ประเภทสินค้า</th>
+                                <th>Barcode</th>
+                                <th>รายการสินค้า</th>
+                                <th>ราคาทุน</th>
+                                <th>ราคาจำหน่าย</th>
+                                <th>จัดการข้อมูล</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% products.forEach(product => { %>
+                            <tr>
+                                <td ><img src="images/<%= product.img %>" width="100px" height="100px"></td>
+                                <td ><%= product.group_product_name %></td>
+                                <td ><%= product.barcode %></td>
+                                <td ><%= product.name %></td>
+                                <td class="text-right" ><%= numeral(product.cost).format() %></td>
+                                <td class="text-right" ><%= numeral(product.price).format() %></td>
+                                <td>
+                                    <a class="btn btn-primary" href="/editProduct/<%= product.id %>">
+                                        <span class="material-symbols-outlined material-icon">
+                                            edit
+                                            </span>
+                                    </a>
+                                    <a class="btn btn-danger" onclick="return confirm('Are you sure Delete data')" href="/deleteProduct/<%= product.id %>/<%= product.img %>">
+                                        <span class="material-symbols-outlined material-icon">
+                                            delete
+                                            </span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <% }) %>
+                </table>
+    </div>
+</div>
+<%- include('footer') %> 

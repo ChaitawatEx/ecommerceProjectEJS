@@ -1,0 +1,56 @@
+<%- include('header') %> 
+<div class="container">
+    
+    <div class="card-title mt-2 h5">รายงานยอดขายรายวัน</div>
+    <form method="get">
+        <div class="row">
+        <div class="col-2">
+        <label>ปี</label>
+            <select class="form-control" name="year">
+                <% arrYears.forEach(item=>{ %> 
+                <option value="<%= item %>"<% if(item == y) {%> selected <%} %> >
+                    <%= item %>
+                </option>
+                <%})%>
+            </select>
+        </div>
+        <div class="col-2">
+        <label>เดือน</label>
+          
+            <select class="form-control" name="month">
+                <% arrMonths.forEach((item,index) =>{ %> 
+                    <option value="<%= index+1 %>" <% if(index+1 == m) {%> selected <%} %>>
+                        <%= item %>
+                    </option>
+                    <%})%>
+            </select>
+          
+        </div>
+        <div class="col-2 mt-2">
+            <br>
+            <button class="btn btn-success" >แสดงข้อมูล</button>
+        </div>
+    </div>
+    </form>
+
+
+    <table class="table table-bordered mt-4">
+        <thead>
+            <tr class="text-center">
+                <th width="100px">วันที่</th>
+                <th>ยอดขาย</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% arr.forEach((item,index) => {%>
+            <tr >
+                <td class="text-center"><%= index+1  %> </td>
+                <td class="text-right"><%= numeral(item).format() %></td>
+                 </div>
+            </tr>
+            <%}) %> 
+        </tbody>
+
+    </table>
+</div>
+<%- include('footer') %> 

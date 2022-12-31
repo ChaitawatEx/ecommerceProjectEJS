@@ -1,0 +1,21 @@
+<%- include('header') %> 
+<form method="post">
+  
+ <div class="box">
+    <h3> บันทึกการรับชำระเงิน บิล : <%= orderId %></h3>
+    <div class="card2">
+    <div> 
+        <label>วันที่ชำระเงิน</label>
+        <input type="datetime-local" class="form-control" name="pay_date">
+    </div>
+    <div> 
+        <label>หมายเหตุ</label>
+        <textarea class="form-control" name="pay_remark"></textarea>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary mt-3" >บันทึกข้อมูล</button>
+    </div>
+</div>
+ </div>
+</form>
+<%- include('footer') %> 

@@ -1,0 +1,51 @@
+<%- include('header') %> 
+
+    <div class="container">
+        <div class="h4 mt-5">
+            <span class="material-symbols-outlined material-icon">
+                account_circle
+                </span> ผู้ใช้งานระบบ
+        </div>
+        <a class="btn btn-info mt-3" href="/addUser">
+            <span class="material-symbols-outlined material-icon">
+                add
+                </span> เพิ่มรายการ
+        </a>
+        <table class="table table-bordered table-striped mt-5">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Level</th>
+                    <th>Manage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(user => { %>
+                 <tr>
+                    <td><%= user.id %> </td>
+                    <td><%= user.name %> </td>
+                    <td><%= user.user %></td>
+                    <td><%= user.level %></td>
+                    <td width = 150px>
+                       
+                        <a class="btn btn-primary" href="/editUser/<%= user.id %> ">
+                            <span class="material-symbols-outlined material-icon">
+                                edit
+                                </span> 
+                        </a>
+                        <a class="btn btn-danger" href="/deleteUser/<%= user.id %>" onclick="return confirm('Are you sure')" >
+                            <span class="material-symbols-outlined material-icon">
+                                delete
+                                </span> 
+                        </a>
+                      
+                    </td>
+                 </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+<%- include('footer') %> 

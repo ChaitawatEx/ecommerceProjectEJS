@@ -1,0 +1,16 @@
+<%- include('page_header') %> 
+<form method="post">
+<div class="box">
+    <div class="card3">
+    <div><img src="/images/<%= product.img %> "width="300px"></div>
+    <div>รหัสสินค้า : <%= product.barcode%> </div>
+    <div>ชื่อสินค้า : <%= product.name%> </div>
+    <div>ราคา : <%= numeral(product.price).format() %> </div>
+    <div>จำนวน : <input type="text" name="qty" value="<%= product.qty %> " class="form-control"> </div>
+    <div class="text-center">
+    <button type="submit" class="btn btn-primary mt-5">Save</button>
+    </div>  
+</div>
+</div>
+</form>
+<%- include('page_footer') %> 

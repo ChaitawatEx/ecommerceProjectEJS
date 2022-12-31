@@ -1,0 +1,33 @@
+<%- include('page_header') %> 
+<form >
+<div class="container mb-3">
+    <div class="input-group">
+    <div class="input-group-text">ข้อมูลที่ต้องการค้นหา</div>
+    <input type="text" name="search" class="form-control" >
+    <div class="input-group-append">
+        <button type="submit"  class="btn btn-info" >แสดงข้อมูล</button>
+    </div>
+</div>
+</div>
+</form>
+<div class="container1">
+    <div class="row">
+        <% products.forEach(product=>{%>
+            <div class="column">
+        <div class="card4">
+        <img src="/images/<%= product.img %> " style="width:230px; height: 200px;">    
+        <div class="card-body1">
+        <div class="h5"><%= product.name %> </div>
+        <div><%=numeral(product.price).format() %> Bath </div>
+        <div style="text-align: center;">
+        <a class="btn btn-info btn-add"  href="/addToCart/<%= product.id %>"><span class="material-symbols-outlined material-icon">
+            add_shopping_cart
+            </span> Add to Cart</a>
+        </div>
+        </div>
+    </div>
+</div>
+    <%}) %> 
+    </div>
+</div>
+<%- include('page_footer') %> 

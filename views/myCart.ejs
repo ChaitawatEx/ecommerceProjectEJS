@@ -1,0 +1,53 @@
+<%- include('page_header') %> 
+<div class="container">
+    <div class="h4">ตะกร้าสินค้า</div>
+  
+        <table  class="table table-bordered">
+        <thead class="text-center">
+            <tr>
+                <th>ภาพสินค้า</th>
+                <th>บาร์โค๊ต</th>
+                <th>รายการ</th>
+                <th>ราคา</th>
+                <th>จำนวน</th>
+                <th>ยอดรวม</th>
+                <th>ยกเลิก</th>
+            </tr>
+        </thead>
+             <tbody>
+                <% product.forEach(products =>{%>
+                <tr>
+                    <td  width="100px" class="text-center"><img src="/images/<%= products.img %> " width="100px"  height="100px" </td>
+                    <td  width="100px"><%= products.barcode %> </td>
+                    <td  width="300px"><%= products.name %></td>
+                    <td  width="100px" class="text-right"><%= numeral(products.price).format() %></td>
+                    <td  width="100px" class="text-center"><%= products.qty %> </td>
+                    <td  width="100px" class="text-right"><%= numeral(products.qty *  products.price).format() %> </td>
+                    <td width="120px">
+                        <a class="btn btn-primary" href="/editItemInCart/<%= products.id %> ">
+                            <span class="material-symbols-outlined material-icon">
+                                edit
+                                </span> 
+                        </a>
+                        <a class="btn btn-danger" href="/deleteItemInCart/<%= products.id %> " onclick="return confirm('Are you sure')" >
+                            <span class="material-symbols-outlined material-icon">
+                                delete
+                                </span> 
+                        </a>
+
+                    </td>
+                </tr>
+                <%}) %> 
+        </tbody>
+    
+    </table>
+
+     <div class="text-center h5" style="color: crimson;"> จำนวนรวมทั้งหมด <%=  totalQty%> ชิ้น  
+     รวมเป็นเงิน <%= numeral(totalPrice).format() %> บาท </div>
+  <div class="text-center">
+    <a href="/confirmOrder" class="btn btn-info mt-3">ยืนยันการซื้อ <span class="material-symbols-outlined material-icon">
+        arrow_forward_ios
+        </span></a>
+  </div> 
+</div>
+<%- include('page_footer') %> 

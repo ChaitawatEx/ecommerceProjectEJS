@@ -1,0 +1,32 @@
+<%- include('header') %> 
+<div class="container">
+    <div class="card-title mt-2 h5">รายงานยอดแยกตามสินค้า</div>
+    <table class="table table-bordered mt-4">
+        <thead>
+            <tr class="text-center">
+                <th>id</th>
+                <th>สินค้า</th>
+                <th>รหัสสินค้า</th>
+                <th>ยอดขาย</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+                <% arr.forEach((item) => {%>
+                    <tr >
+                        <div>
+                         <td class="text-center"><%= item.id  %> </td>   
+                        <td class="text-center"><%= item.name  %> </td>
+                        <td class="text-center"><%= item.barcode %> </td>
+                        <td class="text-right"><%= numeral(item.totalPrice).format()%></td>
+                         </div>
+                    </tr>
+              
+                    <%}) %> 
+            
+            
+        </tbody>
+
+    </table>
+</div>
+<%- include('footer') %> 

@@ -1,0 +1,25 @@
+<%- include('header')  %> 
+<form method="post"  action="/login">
+<div class="box">
+<div class="text-center h2 mt-3 text-info">ระบบร้านค้าออนไลน์</div>
+<div class="card">
+   <div class="card-body">
+      <h3> <span class="material-symbols-outlined">
+         rocket_launch
+         </span> Login เข้าระบบหลังบ้าน</h3>
+      <div class="mt-3"> Username </div>
+      <div><input type="text" name="user" class="form-control"></div>
+      <div class="mt-3">Password</div>
+      <div><input type="password" name="pass" class="form-control"></div>
+      <div class="mt-3">
+         <button type="submit" class="btn btn-info"> <span class="material-symbols-outlined material-icon">
+            login
+            </span>
+            Login
+         </button>
+      </div>
+   </div>
+</div>
+</div>
+</form>
+<%- include('footer') %> 
